@@ -24,4 +24,8 @@ public class BarService {
     public List<Bar> findAllByBoardAndTitle(Long boardId, String title){
         return barRepository.findAllByBoardAndTitle(boardId, title);
     }
+
+    public Boolean isExistByBoard(Long boardID){
+        return barRepository.exist(boardID);
+    }
 }

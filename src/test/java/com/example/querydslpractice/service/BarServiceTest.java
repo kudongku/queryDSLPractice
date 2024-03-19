@@ -59,4 +59,17 @@ class BarServiceTest {
         List<Bar> bars = barService.findAllByBoardAndTitle(board.getId(), null);
         assert bars.size() == 2;
     }
+
+    @Test
+    @DisplayName("Exist 대체하기")
+    public void exist() {
+        Board board = Board.builder().title("testBoard").build();
+        boardService.saveBoard(board);
+
+        for(int i=0; i<50; i++){
+            barService.saveBar(Bar.builder().title("existTest"+i+1).board(board).build());
+        }
+
+        assert barService.isExistByBoard(board.getId());
+    }
 }

@@ -39,6 +39,15 @@ public class BarRepository {
                 .fetch();
     }
 
+    public Boolean exist(Long boardId){
+        Integer fetchOne = queryFactory
+                .selectOne()
+                .from(bar)
+                .where(bar.board.id.eq(boardId))
+                .fetchFirst();
+        return fetchOne!=null;
+    }
+
     private BooleanExpression eqTitle(String title) {
         if(StringUtils.isEmpty(title)){
             return null;
