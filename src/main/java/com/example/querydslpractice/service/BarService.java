@@ -21,7 +21,7 @@ public class BarService {
         return barRepository.findAllByBoard(board);
     }
 
-    public List<Bar> findAllByBoardAndTitle(Board board, String title){
-        return barRepository.findAllByBoardAndTitle(board, title);
+    public List<Bar> findAllByBoardAndTitle(Long boardId, String title){
+        return barRepository.findAllByBoardAndTitle(boardId, title);
     }
 }

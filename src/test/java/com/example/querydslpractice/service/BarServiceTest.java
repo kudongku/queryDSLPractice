@@ -41,7 +41,7 @@ class BarServiceTest {
     }
 
     @Test
-    @DisplayName("BooleanBuilder로 where쿼리가 잘 날라가는지")
+    @DisplayName("BooleanExpression을 사용해서 null값일때 조건절 변화")
     public void findBar() {
         Board board = Board.builder().title("testBoard").build();
         boardService.saveBoard(board);
@@ -56,7 +56,7 @@ class BarServiceTest {
         barService.saveBar(bar3);
         barService.saveBar(bar4);
 
-        List<Bar> bars = barService.findAllByBoardAndTitle(board, "true");
+        List<Bar> bars = barService.findAllByBoardAndTitle(board.getId(), null);
         assert bars.size() == 2;
     }
 }
