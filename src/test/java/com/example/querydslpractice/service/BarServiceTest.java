@@ -57,7 +57,7 @@ class BarServiceTest {
         barService.saveBar(bar3);
         barService.saveBar(bar4);
 
-        List<BarResponseDto> bars = barService.findAllByBoardAndTitle(board.getId(), null);
+        List<BarResponseDto> bars = barService.findAllByBoardAndTitle(board.getId(), "true");
         assert bars.size() == 2;
     }
 

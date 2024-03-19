@@ -5,6 +5,7 @@ import com.example.querydslpractice.entity.Bar;
 import com.example.querydslpractice.entity.Board;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ public class BarRepository {
     public List<BarResponseDto> findAllByBoardAndTitle(Long boardId, String title) {
         return queryFactory.select(Projections.fields(BarResponseDto.class,
                         bar.id,
-                        bar.title
+                        Expressions.asString(title).as("title")
                 ))
                 .from(bar)
                 .where(eqBoard(boardId), eqTitle(title))
