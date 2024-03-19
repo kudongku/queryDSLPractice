@@ -1,5 +1,6 @@
 package com.example.querydslpractice.service;
 
+import com.example.querydslpractice.dto.BarResponseDto;
 import com.example.querydslpractice.entity.Bar;
 import com.example.querydslpractice.entity.Board;
 import com.example.querydslpractice.repository.BarRepository;
@@ -21,7 +22,7 @@ public class BarService {
         return barRepository.findAllByBoard(board);
     }
 
-    public List<Bar> findAllByBoardAndTitle(Long boardId, String title){
+    public List<BarResponseDto> findAllByBoardAndTitle(Long boardId, String title){
         return barRepository.findAllByBoardAndTitle(boardId, title);
     }
 

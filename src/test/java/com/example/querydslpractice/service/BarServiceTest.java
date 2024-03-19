@@ -1,5 +1,6 @@
 package com.example.querydslpractice.service;
 
+import com.example.querydslpractice.dto.BarResponseDto;
 import com.example.querydslpractice.entity.Bar;
 import com.example.querydslpractice.entity.Board;
 import org.junit.jupiter.api.DisplayName;
@@ -56,7 +57,7 @@ class BarServiceTest {
         barService.saveBar(bar3);
         barService.saveBar(bar4);
 
-        List<Bar> bars = barService.findAllByBoardAndTitle(board.getId(), null);
+        List<BarResponseDto> bars = barService.findAllByBoardAndTitle(board.getId(), null);
         assert bars.size() == 2;
     }
 
