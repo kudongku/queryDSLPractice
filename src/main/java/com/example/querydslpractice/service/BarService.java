@@ -20,4 +20,8 @@ public class BarService {
     public List<Bar> findAllByBoard(Board board){
         return barRepository.findAllByBoard(board);
     }
+
+    public List<Bar> findAllByBoardAndTitle(Board board, String title){
+        return barRepository.findAllByBoardAndTitle(board, title);
+    }
 }
